@@ -2,7 +2,7 @@ import React from 'react';
 import dino from './newDino.png';
 import tree from './tree.png';
 import table from './table.js';
-import { AnimateTo, AnimateSequence } from "@microsoft/fast-animation";
+import { AnimateTo, AnimateSequence, AnimateGroup } from "@microsoft/fast-animation";
 import { Button, ButtonAppearance, Image, Heading, Paragraph, Pivot, TextAction } from "@microsoft/fast-components-react-msft";
 // import {TestGlyph} from "@microsoft/fast-glyphs-msft";
 import { Page, Grid, Column} from "@microsoft/fast-layouts-react";
@@ -16,21 +16,23 @@ class App extends React.Component {
     const dinoAnimate = document.querySelector("#dino");
     const treeAnimate1 = document.querySelector("#tree1");
     const treeAnimate2 = document.querySelector("#tree2");
+    const treeAnimate3 = document.querySelector("#tree3");
+
 
     const x = 80;
     const angle = 22.5;
     
     
 
-    const mySequence = new AnimateSequence([
+    const mySequence = new AnimateGroup([
       // new AnimateTo(dinoAnimate, { x: 250, y: 50, top: "50%", left: "50%" }, { duration: 200 }),
-      new AnimateTo(dinoAnimate, { x: 100}, { duration: x }),
+      new AnimateTo(dinoAnimate, { x: 2000}, { duration: x*20 }),
       new AnimateTo(treeAnimate1, { rotate: 90}, { delay:x }),
-      new AnimateTo(dinoAnimate, { x: 300}, { duration: x }),
-      new AnimateTo(treeAnimate2, { rotate: 90}, { delay:x }),
-      new AnimateTo(dinoAnimate, { x: 300}, { duration: x }),
-      new AnimateTo(treeAnimate2, { rotate: 90}, { delay:x }),
-      new AnimateTo(dinoAnimate, { x: 500}, { duration: x }),
+      //new AnimateTo(dinoAnimate, { x: 300}, { duration: x }),
+      new AnimateTo(treeAnimate2, { rotate: 90}, { delay:x*5 }),
+      //new AnimateTo(dinoAnimate, { x: 500}, { duration: x }),
+      new AnimateTo(treeAnimate3, { rotate: 90}, { delay:x*6 }),
+      //new AnimateTo(dinoAnimate, { x: 1000}, { duration: x }),
 
       // new AnimateTo(dinoAnimate, { rotate: angle/2 }, { duration: x }),
       // new AnimateTo(dinoAnimate, { rotate: -angle }, { duration: x, delay:x }),
