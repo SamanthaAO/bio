@@ -1,8 +1,73 @@
-.App {
-  text-align: center;
+
+
+/* #dino {
+  position: relative;
+  left: -500px;
+} */
+
+
+
+#profile1 {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  display: flex;
+  align-items: center;
 }
 
-#dino {
-  position: relative;
-  left: -1000px;
+#profile2, #heading {
+  grid-column-start: 4;
+  grid-column-end: 13;
 }
+
+#name {
+  /* text-align: center; */
+  grid-column-start: 1;
+  grid-column-end: 4;
+  margin-bottom: 1em;
+}
+
+#about {
+  text-align: left;
+}
+
+#animateButtonColumn {
+  grid-column-start: 6;
+  grid-column-end: 8;
+  text-align: center;
+  margin-top: 1em;
+}
+
+#animationGrid {
+  margin-top: 3em;
+}
+
+#dinoColumn {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  display: flex;
+  align-items: bottom;
+}
+
+#treeColumn1 {
+  grid-column-start: 5;
+  grid-column-end: 6;
+}
+
+#treeColumn2 {
+  grid-column-start: 6;
+  grid-column-end: 8;
+}
+
+#treeColumn3 {
+  grid-column-start: 8;
+  grid-column-end: 9;
+}
+
+
+
+
+
+
+
+
+
