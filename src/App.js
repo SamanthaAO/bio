@@ -1,7 +1,7 @@
 import React from 'react';
 import dino from './newDino.png';
 import tree from './tree.png';
-import table from './table.js';
+// import table from './table.js';
 import { AnimateTo, AnimateSequence, AnimateGroup } from "@microsoft/fast-animation";
 import { Button, ButtonAppearance, Image, Heading, Paragraph, Pivot, TextAction } from "@microsoft/fast-components-react-msft";
 // import {TestGlyph} from "@microsoft/fast-glyphs-msft";
