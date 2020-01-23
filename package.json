@@ -5,6 +5,7 @@
   "dependencies": {
     "@microsoft/fast-animation": "^4.0.7",
     "@microsoft/fast-components-react-msft": "^4.29.0",
+    "@microsoft/fast-components-styles-msft": "^4.28.0",
     "@microsoft/fast-glyphs-msft": "^4.0.4",
     "@microsoft/fast-jss-manager": "^4.1.10",
     "@microsoft/fast-jss-manager-react": "^4.6.1",
