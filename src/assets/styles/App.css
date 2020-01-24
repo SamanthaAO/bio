@@ -3,9 +3,6 @@
   align-items: center;
 }
 
-#about {
-  text-align: left;
-}
 
 #animateButtonColumn {
   text-align: center;
@@ -16,10 +13,7 @@
   margin-top: 3em;
 }
 
-#dinoColumn {
-  display: flex;
-  align-items: bottom;
-}
+
 
 
 
