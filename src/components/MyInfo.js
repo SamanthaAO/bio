@@ -9,7 +9,7 @@ import {info} from "../data/info.js";
 export default function MyInfo (props){
 
         return (
-            <Grid>
+            <Grid id="infoDisplay">
                 <Column 
                 id="profile1"
                 span={info.column1.span}
