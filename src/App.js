@@ -5,42 +5,40 @@ import animate from './animate.js';
 import { DesignSystemDefaults } from '@microsoft/fast-components-styles-msft';
 import { Button, ButtonAppearance, Image, Heading, Paragraph} from "@microsoft/fast-components-react-msft";
 
-import { DesignSystemProvider, JSSManager  } from "@microsoft/fast-jss-manager-react";
+import { DesignSystemProvider } from "@microsoft/fast-jss-manager-react";
 import { mergeDesignSystem} from "@microsoft/fast-jss-manager";
 import { Page, Grid, Column} from "@microsoft/fast-layouts-react";
 
 import './App.css';
 
 const newDesign = {
-  backgroundColor: "#0F0"
+  backgroundColor: "#000"
 };
+
+const myDesign = mergeDesignSystem(DesignSystemDefaults, newDesign);
 
 
 
 class App extends React.Component {
-
-  constructor(props){
-    super(props);
-    this.myDesign = mergeDesignSystem(DesignSystemDefaults, newDesign);
-  }
-
-  
+ 
   render() {
-    console.log(DesignSystemDefaults);
-    console.log(newDesign);
-    console.log(this.myDesign);
+    console.log(DesignSystemDefaults.backgroundColor);
+    console.log(newDesign.backgroundColor);
+    // console.log(this.myDesign.backgroundColor);
     return (
-      <DesignSystemProvider designSystem={this.myDesign}>
-        <div className="App">
+      <DesignSystemProvider designSystem= {myDesign}>
+        
+        <div className="App" style={{backgroundColor: myDesign.backgroundColor}}>
           <Page >
 
             <Grid>
-
+            
               <Column 
               span={12}
               position={1}
               gutter={50}
               >
+            
 
                 <Heading 
                   tag={"h1"}
@@ -50,6 +48,7 @@ class App extends React.Component {
                 </Heading>
 
               </Column>
+              
 
             </Grid>
 
@@ -152,6 +151,7 @@ class App extends React.Component {
 
           </Page>
         </div>
+        
       </DesignSystemProvider>
 
     );
