@@ -21,7 +21,7 @@ export const info = {
             paragraphText: "This is a section that displays general life information about me.",
             image: {
                 src: "https://via.placeholder.com/200/09f/fff.png",
-                alt: "image"
+                alt: "Samantha Orcutt in Professional Attire"
             }
         },
         {
@@ -43,9 +43,5 @@ export const info = {
         
 
     ]
-    
-
-
-
 
 }

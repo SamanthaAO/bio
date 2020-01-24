@@ -1,49 +1,48 @@
 import React from 'react';
 import { Grid, Column } from "@microsoft/fast-layouts-react";
-import { Heading, Image, Paragraph, Card } from "@microsoft/fast-components-react-msft";
+import { Heading, Image, Paragraph} from "@microsoft/fast-components-react-msft";
 
-import info from "../data/info.js";
+import {info} from "../data/info.js";
 
 
 
-export default class MyInfo extends React.Component {
+export default function MyInfo (props){
 
-    render() {
         return (
             <Grid>
                 <Column 
                 id="profile1"
-                span={3}
-                position={1}
+                span={info.column1.span}
+                position={info.column1.position}
                 >
                     <Image
                         id="profilePicture"
-                        src="https://via.placeholder.com/200/09f/fff.png"
-                        alt="Samantha Orcutt"
+                        src={info.sections[props.i].image.src}
+                        alt={info.sections[props.i].image.alt}
                     />
                 </Column>
 
                 <Column 
-                span={9}
-                position={4}
+                span={info.column2.span}
+                position={info.column2.position}
                 >
                 
                 <Heading
-                    tag={"h2"}
-                    size={3}
+                    tag={info.heading.tag}
+                    size={info.heading.size}
                 >
-                    About Me
+                    {info.sections[props.i].headingText}
                 </Heading>
                 <Paragraph
-                    size={1}
+                    size={info.paragraph.size}
                 >
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    {info.sections[props.i].paragraphText}
                 </Paragraph>
 
                 </Column>
             </Grid>
         )
-    }
+    
 }
 
 
