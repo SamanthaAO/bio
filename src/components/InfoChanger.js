@@ -6,8 +6,6 @@ import { info } from "../data/info";
 
 export default  function InfoChanger(props){
 
-    console.log(info.sections.length-1)
-
     return (
         
         <Grid>

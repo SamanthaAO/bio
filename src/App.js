@@ -19,16 +19,16 @@ import InfoChanger from "./components/InfoChanger.js";
 import { AnimateDino } from "./components/AnimateDino.js";
 import AnimateDinoButton from "./components/AnimateDinoButton.js";
 
-const newDesign = {
-  backgroundColor: "#FFF"
+let newDesign = {
+  backgroundColor : "#FFF"
 };
 
-const myDesign = mergeDesignSystem(DesignSystemDefaults, newDesign);
+//let myDesign = mergeDesignSystem(DesignSystemDefaults, newDesign);
 
 
 const range = {
   "minValue": 0,
-  "maxValue": 125
+  "maxValue": 100
 };
 
 
@@ -41,10 +41,13 @@ class App extends React.Component {
     this.decreaseInfo = this.decreaseInfo.bind(this);
     this.animateInfo = this.animateInfo.bind(this);
     this.changeColor = this.changeColor.bind(this);
+    this.changeColorDisplay = this.changeColorDisplay.bind(this);
+    
 
     this.state = {
       info: 0,
-      backgroundColor: "#FFF"
+      backgroundColor: "#FFF",
+      myDesign: mergeDesignSystem(DesignSystemDefaults, newDesign)
     }
   }
 
@@ -68,42 +71,46 @@ class App extends React.Component {
     var x = document.querySelector("input").value;
     //console.log(x);
     switch(x) {
-        case "1":
+        case "5":
         this.setState({ backgroundColor: "#FFF" })
         console.log(this.state.backgroundColor);
         break;
 
-        case "25" :
+        case "20" :
         this.setState({ backgroundColor: "#FF0" })
         console.log(this.state.backgroundColor);
         break;
 
-        case "50" :
+        case "40" :
         this.setState({ backgroundColor: "#050" })
         console.log(this.state.backgroundColor);
         break;
 
-        case "75" :
+        case "60" :
         this.setState({ backgroundColor: "#900" })
         console.log(this.state.backgroundColor);
         break;
 
-        case "100" :
+        case "80" :
         this.setState({ backgroundColor: "#005" })
         console.log(this.state.backgroundColor);
         break;
 
-        case "125" :
+        case "95" :
         this.setState({ backgroundColor: "#000" })
         console.log(this.state.backgroundColor);
         break;
 
-        default:
-        console.log(x)
     }
 
-    
+    this.changeColorDisplay();
 
+  }
+
+  changeColorDisplay() {
+    newDesign.backgroundColor = this.state.backgroundColor;
+    this.setState({ myDesign: mergeDesignSystem(DesignSystemDefaults, newDesign) })
+    // this.state.myDesign = mergeDesignSystem(DesignSystemDefaults, newDesign);
   }
 
   render() {
@@ -112,9 +119,9 @@ class App extends React.Component {
     // console.log(newDesign.backgroundColor);
     // console.log(this.myDesign.backgroundColor);
     return (
-      <DesignSystemProvider designSystem={myDesign}>
+      <DesignSystemProvider designSystem={this.state.myDesign}>
 
-        <div className="App" style={{ backgroundColor: myDesign.backgroundColor }}>
+        <div className="App" style={{ backgroundColor: this.state.myDesign.backgroundColor }}>
           <Page >
 
             <MyHeading />
@@ -127,30 +134,31 @@ class App extends React.Component {
             <Slider
               range={range}
               id="mySlider"
+              initialValue={5}
               onValueChange={this.changeColor}
             >
               <SliderLabel
-                valuePositionBinding={0}
+                valuePositionBinding={5}
                 label={"white"}
               />
               <SliderLabel
-                valuePositionBinding={25}
+                valuePositionBinding={20}
                 label={"yellow"}
               />
               <SliderLabel
-                valuePositionBinding={50}
+                valuePositionBinding={40}
                 label={"green"}
               />
               <SliderLabel
-                valuePositionBinding={75}
+                valuePositionBinding={60}
                 label={"red"}
               />
               <SliderLabel
-                valuePositionBinding={100}
+                valuePositionBinding={80}
                 label={"blue"}
               />
               <SliderLabel
-                valuePositionBinding={125}
+                valuePositionBinding={95}
                 label={"black"}
               />
             </Slider>
