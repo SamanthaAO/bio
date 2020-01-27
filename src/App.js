@@ -42,17 +42,18 @@ class App extends React.Component {
   }
 
 
-  handleClickImage(event) {
+  handleClickImage= event => {
     console.log("clicked!" + event.target.id)
     const newImageId = parseInt(event.target.id.slice(-1));
     console.log(newImageId)
     //console.log(typeof newImageId);
-    console.log("this is the state" + this.state.imageId);
+    console.log("this is the state " + this.state.imageId);
     this.animateImage();
 
-    //  this.setState({ imageId: newImageId });
-    //  console.log("this is the state" + this.state.imageId);
+     this.setState({ imageId: newImageId });
+     console.log("this is the state " + this.state.imageId);
 
+    this.componentDidMount();
 
 
   }
@@ -117,7 +118,7 @@ class App extends React.Component {
 
   componentDidMount() {
     info.sections.forEach((section, i) => {
-      document.getElementById(`tab-${i}`).addEventListener("click", this.handleClickImage, true)
+      document.getElementById(`tab-${i}`).addEventListener("click", this.handleClickImage)
     })
   }
 
@@ -149,8 +150,8 @@ class App extends React.Component {
               </Column>
 
               <Column
-                position={6}
-                span={10}
+                position={7}
+                span={8}
               >
 
                 <Pivot

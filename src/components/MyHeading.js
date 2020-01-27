@@ -7,7 +7,7 @@ export default class App extends React.Component {
 
     render() {
         return(
-            <Grid class="marginTop">
+            <Grid className="marginTop">
 
                 <Column
                     span={12}
