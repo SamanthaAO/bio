@@ -7,8 +7,7 @@ import { mergeDesignSystem } from "@microsoft/fast-jss-manager";
 import { Image } from "@microsoft/fast-components-react-msft";
 import { AnimateFrom } from "@microsoft/fast-animation";
 import { Pivot } from "@microsoft/fast-components-react-msft";
-//import { PivotState} from "@microsoft/fast-components-react-msft/src/pivot/pivot";
-import { uniqueId } from "lodash-es";
+//import { uniqueId } from "lodash-es";
 
 import { Page, Grid, Column } from "@microsoft/fast-layouts-react";
 
@@ -18,6 +17,7 @@ import { info } from "./data/info";
 
 import MyHeading from "./components/MyHeading.js";
 import MySlider from "./components/MySlider.js";
+import MyMain from "./components/MyMain.js"
 
 let newDesign = {
   backgroundColor: "#FFF"
@@ -126,45 +126,10 @@ class App extends React.Component {
               changeColor={this.changeColor}
             />
 
-            <Grid id="main">
-              <Column
-                position={1}
-                span={5}
-              >
-                <Image
-                  className="imageDisplay"
-                  id={`${info.sections[this.state.imageId].headingText}-image`}
-                  src={info.sections[this.state.imageId].image.src}
-                  alt={info.sections[this.state.imageId].image.alt}
-                />
-              </Column>
+            <MyMain 
+              i={this.state.imageId}
+            />
 
-              <Column
-                position={7}
-                span={8}
-              >
-
-                <Pivot
-                  id="myPivot"
-                  label="Pivot Component containing information about Samantha Orcutt"
-                  items={info.sections.map((x, i) => {
-                    let obj = {};
-                    obj.tab = (className) => (   
-                      <p  className={className} id={`tab-${i}`}>{x.headingText} </p>
-                    );
-                    obj.content = (className) => (
-                      <p className={className}>{x.paragraphText}</p>
-                    );
-                    obj.id = i.toString();
-                    // uniqueId();
-
-                    return obj;
-
-                  })
-                  }
-                />
-              </Column>
-            </Grid>
           </Page>
         </div>
 

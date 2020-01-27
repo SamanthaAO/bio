@@ -3,7 +3,7 @@ import { Grid, Column } from "@microsoft/fast-layouts-react";
 import { Heading } from "@microsoft/fast-components-react-msft";
 
 
-export default class App extends React.Component {
+export default class MyHeading extends React.Component {
 
     render() {
         return(
