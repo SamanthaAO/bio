@@ -9,7 +9,7 @@ const range = {
 
 export default function MySlider (props){
 return(
-<Grid id="slider">
+<Grid class="marginTop">
               <Column
               position= {1}
               span={12}

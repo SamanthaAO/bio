@@ -1,15 +1,22 @@
-#profile1 {
-  display: flex;
-  align-items: center;
+.App {
+  height: 100%;
 }
 
-#slider{
+.marginTop {
   margin-top: 3em;
 }
 
 #main {
   margin-top: 5em;
+  padding-bottom: 15em;
 }
+
+/* #profile1 {
+  display: flex;
+  align-items: center;
+} */
+
+
 /* #animateButtonColumn {
   text-align: center;
   margin-top: 1em;

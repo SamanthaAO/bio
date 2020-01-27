@@ -50,8 +50,8 @@ class App extends React.Component {
     console.log("this is the state" + this.state.imageId);
     this.animateImage();
 
-    // this.setState({ imageId: newImageId });
-    // console.log("this is the state" + this.state.imageId);
+    //  this.setState({ imageId: newImageId });
+    //  console.log("this is the state" + this.state.imageId);
 
 
 
@@ -126,7 +126,7 @@ class App extends React.Component {
     return (
       <DesignSystemProvider designSystem={this.state.myDesign}>
 
-        <div className="App" style={{ backgroundColor: this.state.myDesign.backgroundColor }}>
+        <div className="App" style={{ backgroundColor: this.state.myDesign.backgroundColor}}>
           <Page >
 
             <MyHeading />
@@ -153,7 +153,7 @@ class App extends React.Component {
                 span={10}
               >
 
-                <Pivot id="pivot"
+                <Pivot
                   label="Pivot Component containing information about Samantha Orcutt"
                   items={info.sections.map((x, i) => {
                     let obj = {};
