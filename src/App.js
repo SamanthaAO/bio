@@ -7,6 +7,7 @@ import { mergeDesignSystem } from "@microsoft/fast-jss-manager";
 import { Image } from "@microsoft/fast-components-react-msft";
 import { AnimateFrom } from "@microsoft/fast-animation";
 import { Pivot } from "@microsoft/fast-components-react-msft";
+//import { PivotState} from "@microsoft/fast-components-react-msft/src/pivot/pivot";
 import { uniqueId } from "lodash-es";
 
 import { Page, Grid, Column } from "@microsoft/fast-layouts-react";
@@ -43,33 +44,21 @@ class App extends React.Component {
 
 
   handleClickImage= event => {
-    console.log("clicked!" + event.target.id)
     const newImageId = parseInt(event.target.id.slice(-1));
-    console.log(newImageId)
-    //console.log(typeof newImageId);
-    console.log("this is the state " + this.state.imageId);
     this.animateImage();
-
-     this.setState({ imageId: newImageId });
-     console.log("this is the state " + this.state.imageId);
-
-    this.componentDidMount();
-
-
+    this.setState({ imageId: newImageId });
   }
 
   animateImage() {
     const imageDisplay = document.querySelector(".imageDisplay");
     const imageAnimate = new AnimateFrom(imageDisplay, { scale: 0 }, { duration: 500 });
     imageAnimate.play();
-
   }
 
 
 
   changeColor() {
     var x = document.querySelector("input").value;
-    //console.log(x);
     switch (x) {
       case "5":
         this.setState({ backgroundColor: "#FFF" })
@@ -118,12 +107,13 @@ class App extends React.Component {
 
   componentDidMount() {
     info.sections.forEach((section, i) => {
-      document.getElementById(`tab-${i}`).addEventListener("click", this.handleClickImage)
+      document.getElementById(`tab-${i}`).parentNode.setAttribute("id", `div-tab-${i}`);
+      document.getElementById(`div-tab-${i}`).addEventListener("click", this.handleClickImage);
     })
   }
 
   render() {
-
+  
     return (
       <DesignSystemProvider designSystem={this.state.myDesign}>
 
@@ -155,16 +145,19 @@ class App extends React.Component {
               >
 
                 <Pivot
+                  id="myPivot"
                   label="Pivot Component containing information about Samantha Orcutt"
                   items={info.sections.map((x, i) => {
                     let obj = {};
-                    obj.tab = (className) => (
-                      <p className={className} id={`tab-${i}`}>{x.headingText} </p>
+                    obj.tab = (className) => (   
+                      <p  className={className} id={`tab-${i}`}>{x.headingText} </p>
                     );
                     obj.content = (className) => (
                       <p className={className}>{x.paragraphText}</p>
                     );
-                    obj.id = uniqueId();
+                    obj.id = i.toString();
+                    // uniqueId();
+
                     return obj;
 
                   })
