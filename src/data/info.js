@@ -1,3 +1,8 @@
+import generalImage from "../assets/images/general.jpg";
+import careerImage from "../assets/images/career.jpg";
+import hobbiesImage from "../assets/images/hobbies.jpg";
+
+
 export const info = {
     column1: {
         span: 3,
@@ -18,26 +23,26 @@ export const info = {
     sections: [
         {
             headingText: "General",
-            paragraphText: "This is a section that displays general life information about me.",
+            paragraphText: "I was born and raised in California. ",
             image: {
-                src: "https://via.placeholder.com/200/09f/fff.png",
-                alt: "Samantha Orcutt in Professional Attire"
+                src: generalImage,
+                alt: "Samantha Orcutt in Paris"
             }
         },
         {
             headingText: "Career",
-            paragraphText: "This is a section that displays career information about me.",
+            paragraphText: "",
             image: {
-                src: "https://via.placeholder.com/200/09f/fff.png",
-                alt: "image"
+                src: careerImage,
+                alt: "Samantha Orcutt in Professional Attire"
             }
         },
         {
             headingText: "Hobbies",
             paragraphText: "This is a section that displays gmy hobbies.",
             image: {
-                src: "https://via.placeholder.com/200/09f/fff.png",
-                alt: "image"
+                src: hobbiesImage,
+                alt: "Samantha Orcutt on a fishing trip"
             }
         }
         

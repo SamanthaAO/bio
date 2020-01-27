@@ -4,8 +4,10 @@ import { DesignSystemDefaults } from '@microsoft/fast-components-styles-msft';
 import { DesignSystemProvider } from "@microsoft/fast-jss-manager-react";
 import { mergeDesignSystem } from "@microsoft/fast-jss-manager";
 
-import { Slider, SliderLabel } from "@microsoft/fast-components-react-msft";
+import { Image } from "@microsoft/fast-components-react-msft";
 import { AnimateFrom } from "@microsoft/fast-animation";
+import { Pivot } from "@microsoft/fast-components-react-msft";
+import { uniqueId } from "lodash-es";
 
 import { Page, Grid, Column } from "@microsoft/fast-layouts-react";
 
@@ -14,21 +16,10 @@ import { info } from "./data/info";
 
 
 import MyHeading from "./components/MyHeading.js";
-import MyInfo from "./components/MyInfo.js";
-import InfoChanger from "./components/InfoChanger.js";
-import { AnimateDino } from "./components/AnimateDino.js";
-import AnimateDinoButton from "./components/AnimateDinoButton.js";
+import MySlider from "./components/MySlider.js";
 
 let newDesign = {
-  backgroundColor : "#FFF"
-};
-
-//let myDesign = mergeDesignSystem(DesignSystemDefaults, newDesign);
-
-
-const range = {
-  "minValue": 0,
-  "maxValue": 100
+  backgroundColor: "#FFF"
 };
 
 
@@ -37,69 +28,81 @@ class App extends React.Component {
   constructor(props) {
     super(props);
 
-    this.increaseInfo = this.increaseInfo.bind(this);
-    this.decreaseInfo = this.decreaseInfo.bind(this);
-    this.animateInfo = this.animateInfo.bind(this);
     this.changeColor = this.changeColor.bind(this);
     this.changeColorDisplay = this.changeColorDisplay.bind(this);
-    
+
+    this.handleClickImage = this.handleClickImage.bind(this);
+    this.animateImage = this.animateImage.bind(this);
 
     this.state = {
-      info: 0,
+      imageId: 0,
       backgroundColor: "#FFF",
-      myDesign: mergeDesignSystem(DesignSystemDefaults, newDesign)
+      myDesign: mergeDesignSystem(DesignSystemDefaults, newDesign),
     }
   }
 
-  animateInfo() {
-    const infoDisplay = document.querySelector("#infoDisplay");
-    const textAnimate = new AnimateFrom(infoDisplay, { scale: 0 }, { duration: 500 });
-    textAnimate.play();
+
+  handleClickImage(event) {
+    console.log("clicked!" + event.target.id)
+    const newImageId = parseInt(event.target.id.slice(-1));
+    console.log(newImageId)
+    //console.log(typeof newImageId);
+    console.log("this is the state" + this.state.imageId);
+    this.animateImage();
+
+    // this.setState({ imageId: newImageId });
+    // console.log("this is the state" + this.state.imageId);
+
+
+
   }
 
-  increaseInfo() {
-    this.animateInfo();
-    this.state.info >= info.sections.length - 1 ? this.setState({ info: 0 }) : this.setState({ info: this.state.info + 1 });
+  animateImage() {
+    const imageDisplay = document.querySelector(".imageDisplay");
+    const imageAnimate = new AnimateFrom(imageDisplay, { scale: 0 }, { duration: 500 });
+    imageAnimate.play();
+
   }
 
-  decreaseInfo() {
-    this.animateInfo();
-    this.state.info <= 0 ? this.setState({ info: info.sections.length - 1 }) : this.setState({ info: this.state.info - 1 });
-  }
+
 
   changeColor() {
     var x = document.querySelector("input").value;
     //console.log(x);
-    switch(x) {
-        case "5":
+    switch (x) {
+      case "5":
         this.setState({ backgroundColor: "#FFF" })
         console.log(this.state.backgroundColor);
         break;
 
-        case "20" :
+      case "20":
         this.setState({ backgroundColor: "#FF0" })
         console.log(this.state.backgroundColor);
+
         break;
 
-        case "40" :
+      case "40":
         this.setState({ backgroundColor: "#050" })
         console.log(this.state.backgroundColor);
         break;
 
-        case "60" :
+      case "60":
         this.setState({ backgroundColor: "#900" })
         console.log(this.state.backgroundColor);
         break;
 
-        case "80" :
+      case "80":
         this.setState({ backgroundColor: "#005" })
         console.log(this.state.backgroundColor);
         break;
 
-        case "95" :
+      case "95":
         this.setState({ backgroundColor: "#000" })
         console.log(this.state.backgroundColor);
         break;
+
+      default:
+        this.setState({ backgroundColor: this.state.backgroundColor });
 
     }
 
@@ -110,14 +113,16 @@ class App extends React.Component {
   changeColorDisplay() {
     newDesign.backgroundColor = this.state.backgroundColor;
     this.setState({ myDesign: mergeDesignSystem(DesignSystemDefaults, newDesign) })
-    // this.state.myDesign = mergeDesignSystem(DesignSystemDefaults, newDesign);
+  }
+
+  componentDidMount() {
+    info.sections.forEach((section, i) => {
+      document.getElementById(`tab-${i}`).addEventListener("click", this.handleClickImage, true)
+    })
   }
 
   render() {
 
-    // console.log(DesignSystemDefaults.backgroundColor);
-    // console.log(newDesign.backgroundColor);
-    // console.log(this.myDesign.backgroundColor);
     return (
       <DesignSystemProvider designSystem={this.state.myDesign}>
 
@@ -126,60 +131,46 @@ class App extends React.Component {
 
             <MyHeading />
 
-            <Grid>
+            <MySlider
+              changeColor={this.changeColor}
+            />
+
+            <Grid id="main">
               <Column
-              position= {1}
-              span={10}
+                position={1}
+                span={5}
               >
-            <Slider
-              range={range}
-              id="mySlider"
-              initialValue={5}
-              onValueChange={this.changeColor}
-            >
-              <SliderLabel
-                valuePositionBinding={5}
-                label={"white"}
-              />
-              <SliderLabel
-                valuePositionBinding={20}
-                label={"yellow"}
-              />
-              <SliderLabel
-                valuePositionBinding={40}
-                label={"green"}
-              />
-              <SliderLabel
-                valuePositionBinding={60}
-                label={"red"}
-              />
-              <SliderLabel
-                valuePositionBinding={80}
-                label={"blue"}
-              />
-              <SliderLabel
-                valuePositionBinding={95}
-                label={"black"}
-              />
-            </Slider>
-            </Column>
+                <Image
+                  className="imageDisplay"
+                  id={`${info.sections[this.state.imageId].headingText}-image`}
+                  src={info.sections[this.state.imageId].image.src}
+                  alt={info.sections[this.state.imageId].image.alt}
+                />
+              </Column>
+
+              <Column
+                position={6}
+                span={10}
+              >
+
+                <Pivot id="pivot"
+                  label="Pivot Component containing information about Samantha Orcutt"
+                  items={info.sections.map((x, i) => {
+                    let obj = {};
+                    obj.tab = (className) => (
+                      <p className={className} id={`tab-${i}`}>{x.headingText} </p>
+                    );
+                    obj.content = (className) => (
+                      <p className={className}>{x.paragraphText}</p>
+                    );
+                    obj.id = uniqueId();
+                    return obj;
+
+                  })
+                  }
+                />
+              </Column>
             </Grid>
-
-
-            <MyInfo
-              i={this.state.info}
-            />
-
-            <InfoChanger
-              i={this.state.info}
-              onClickIncrease={this.increaseInfo}
-              onClickDecrease={this.decreaseInfo}
-            />
-
-            <AnimateDinoButton />
-
-            <AnimateDino />
-
           </Page>
         </div>
 
