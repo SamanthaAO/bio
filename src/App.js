@@ -31,7 +31,7 @@ class App extends React.Component {
     this.changeColorDisplay = this.changeColorDisplay.bind(this);
 
     this.handleClickImage = this.handleClickImage.bind(this);
-    this.handleKey = this.handleKey.bind(this);
+    this.handleKeyUpImage = this.handleKeyUpImage.bind(this);
     this.animateImage = this.animateImage.bind(this);
 
     this.state = {
@@ -49,7 +49,7 @@ class App extends React.Component {
   }
 
 // on keyup to change tab gets number off the end of the id and sets image Id to that and runs animation
-handleKey(){
+handleKeyUpImage(){
   info.sections.forEach((section, i) => {
     if(document.getElementById(`div-tab-${i}`).getAttribute("tabIndex") === "0"){
       const newImageId = i;
@@ -63,7 +63,7 @@ handleKey(){
 //animates image
   animateImage() {
     const imageDisplay = document.querySelector(".imageDisplay");
-    const imageAnimate = new AnimateFrom(imageDisplay, { scale: 0 }, { duration: 500 });
+    const imageAnimate = new AnimateFrom(imageDisplay, { scale: 0 }, { duration: 400 });
     imageAnimate.play();
   }
 
@@ -117,7 +117,7 @@ handleKey(){
     info.sections.forEach((section, i) => {
       document.getElementById(`tab-${i}`).parentNode.setAttribute("id", `div-tab-${i}`);
       document.getElementById(`div-tab-${i}`).addEventListener("click", this.handleClickImage);
-      document.getElementById(`div-tab-${i}`).addEventListener("keyup", this.handleKey);
+      document.getElementById(`div-tab-${i}`).addEventListener("keyup", this.handleKeyUpImage);
     })
     
   }
