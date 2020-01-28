@@ -7,7 +7,6 @@
 // import AnimateDinoButton from "./components/AnimateDinoButton.js";
 
 
-
 /////********this was in the constructor */
 
 
@@ -59,3 +58,21 @@
 {/* <AnimateDinoButton />
 
             <AnimateDino /> */}
+
+
+////////*******add to info for column structure */
+// column1: {
+//   span: 3,
+//   position: 1,
+// },
+// column2: {
+//   span: 9,
+//   position: 4,
+// },
+// heading: {
+//   tag: "h2",
+//   size: 3
+// },
+// paragraph: {
+//   size: 1
+// },

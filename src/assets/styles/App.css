@@ -2,6 +2,38 @@
   height: 100%;
 }
 
+h1 {
+  text-align: center;
+  /* border-bottom: 5px solid indianred; */
+  text-decoration: underline;
+  text-decoration-color: cadetblue;
+}
+
+/* .pivot_tabContent-0-1-44 {
+  font-size: 34px;
+  line-height:40px;
+} */
+
+#imageColumn {
+  display: flex;
+  align-items: center;
+}
+
+.imageDisplay {
+  /* width: 500px; */
+  
+  border: 5px solid white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  
+}
+
+.pivot_tabPanelContent-0-1-51 {
+  font-size: 20px;
+  border: 5px dotted indianred;
+  
+  padding: 1em;
+}
+
 .marginTop {
   margin-top: 3em;
 }
@@ -10,6 +42,10 @@
   margin-top: 5em;
   padding-bottom: 15em;
 }
+
+
+
+
 
 /* #profile1 {
   display: flex;

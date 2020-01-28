@@ -8,6 +8,7 @@ import { info } from "../data/info";
 export default function MyImage (props) {
     return (
               <Column
+                id="imageColumn"
                 position={1}
                 span={5}
               >

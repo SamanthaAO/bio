@@ -4,22 +4,6 @@ import hobbiesImage from "../assets/images/hobbies.jpg";
 
 
 export const info = {
-    column1: {
-        span: 3,
-        position: 1,
-    },
-    column2: {
-        span: 9,
-        position: 4,
-    },
-    heading: {
-        tag: "h2",
-        size: 3
-    },
-    paragraph: {
-        size: 1
-    },
-
     sections: [
         {
             headingText: "General",

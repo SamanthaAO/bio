@@ -4,8 +4,10 @@ import { Slider, SliderLabel } from "@microsoft/fast-components-react-msft";
 
 const range = {
     "minValue": 0,
-    "maxValue": 100
+    "maxValue": 50
 };
+
+const x = 10;
 
 export default function MySlider(props) {
     return (
@@ -17,31 +19,31 @@ export default function MySlider(props) {
                 <Slider
                     range={range}
                     id="mySlider"
-                    initialValue={5}
+                    initialValue={0}
                     onValueChange={props.changeColor}
                 >
                     <SliderLabel
-                        valuePositionBinding={5}
+                        valuePositionBinding={0}
                         label={"white"}
                     />
                     <SliderLabel
-                        valuePositionBinding={20}
+                        valuePositionBinding={x}
                         label={"yellow"}
                     />
                     <SliderLabel
-                        valuePositionBinding={40}
+                        valuePositionBinding={2*x}
                         label={"green"}
                     />
                     <SliderLabel
-                        valuePositionBinding={60}
+                        valuePositionBinding={3*x}
                         label={"red"}
                     />
                     <SliderLabel
-                        valuePositionBinding={80}
+                        valuePositionBinding={4*x}
                         label={"blue"}
                     />
                     <SliderLabel
-                        valuePositionBinding={95}
+                        valuePositionBinding={5*x}
                         label={"black"}
                     />
                 </Slider>

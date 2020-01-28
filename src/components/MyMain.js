@@ -1,7 +1,6 @@
 import React from 'react';
 
-import { Grid, Column } from "@microsoft/fast-layouts-react";
-import { Image, Pivot } from "@microsoft/fast-components-react-msft";
+import { Grid } from "@microsoft/fast-layouts-react";
 
 import MyImage from "./MyImage.js";
 import MyPivot from "./MyPivot.js";

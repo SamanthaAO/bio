@@ -18,7 +18,7 @@ export default class MyHeading extends React.Component {
 
                     <Heading
                         tag={"h1"}
-                        size={1}
+                        size={2}
                     >
                         Samantha Orcutt: About Me
                     </Heading>
