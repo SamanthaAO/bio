@@ -10,8 +10,8 @@ export default function MyPivot() {
     return (
         
               <Column
-                position={6}
-                span={9}
+                position={[1, 6]}
+                span={[12, 9]}
               >
 
                 <Pivot

@@ -9,8 +9,8 @@ export default function MyImage (props) {
     return (
               <Column
                 id="imageColumn"
-                position={1}
-                span={5}
+                position={[1, 1]}
+                span={[12, 5]}
               >
                 <Image
                   className="imageDisplay"

@@ -7,7 +7,7 @@ export default class MyHeading extends React.Component {
 
     render() {
         return(
-            <Grid className="marginTop">
+            <Grid >
 
                 <Column
                     span={12}

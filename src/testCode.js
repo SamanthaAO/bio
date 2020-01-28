@@ -76,3 +76,20 @@
 // paragraph: {
 //   size: 1
 // },
+
+
+/////*********CSS */
+/* #profile1 {
+  display: flex;
+  align-items: center;
+} */
+
+
+/* #animateButtonColumn {
+  text-align: center;
+  margin-top: 1em;
+}
+
+#animationGrid {
+  margin-top: 3em;
+} */
