@@ -24,7 +24,7 @@ export const info = {
         },
         {
             headingText: "Hobbies",
-            paragraphText: "I love the outdoors, and most activities associated with it. I particularly enjoy hiking and fishing. When the weather is not ideal for going outside I am a huge fan of board games. I also love to travel anywhere and everywhere.",
+            paragraphText: "I love the outdoors, and most activities associated with it. I particularly enjoy hiking and fishing. When the weather is not ideal for going outside, I am a huge fan of board games. I also love to travel anywhere and everywhere.",
             image: {
                 src: hobbiesImage,
                 alt: "Samantha Orcutt on a fishing trip"
