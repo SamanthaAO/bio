@@ -20,7 +20,7 @@ export default class MyHeading extends React.Component {
                         tag={"h1"}
                         size={2}
                     >
-                        Samantha Orcutt: About Me
+                        Samantha Orcutt: <span id="myHeadingSpan">About Me</span>
                     </Heading>
 
                 </Column>

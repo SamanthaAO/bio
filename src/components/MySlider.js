@@ -23,26 +23,32 @@ export default function MySlider(props) {
                     onValueChange={props.changeColor}
                 >
                     <SliderLabel
+                        id="sliderLabel-white"
                         valuePositionBinding={0}
                         label={"white"}
                     />
                     <SliderLabel
+                        id="sliderLabel-yellow"
                         valuePositionBinding={x}
                         label={"yellow"}
                     />
                     <SliderLabel
+                        id="sliderLabel-green"
                         valuePositionBinding={2*x}
                         label={"green"}
                     />
                     <SliderLabel
+                        id="sliderLabel-red"
                         valuePositionBinding={3*x}
                         label={"red"}
                     />
                     <SliderLabel
+                        id="sliderLabel-blue"
                         valuePositionBinding={4*x}
                         label={"blue"}
                     />
                     <SliderLabel
+                        id="sliderLabel-black"
                         valuePositionBinding={5*x}
                         label={"black"}
                     />

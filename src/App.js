@@ -64,7 +64,7 @@ class App extends React.Component {
         break;
 
       case (x>=6 && x<=15):
-        this.setState({ backgroundColor: "#AB1" })
+        this.setState({ backgroundColor: "#CB2" })
 
         break;
 

@@ -5,6 +5,10 @@
 h1 {
   text-align: center;
   /* border-bottom: 5px solid indianred; */
+  
+}
+
+#myHeadingSpan {
   text-decoration: underline;
   text-decoration-color: cadetblue;
 }
@@ -17,12 +21,15 @@ h1 {
 #imageColumn {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .imageDisplay {
   /* width: 500px; */
   
   border: 5px solid white;
+  /* border-bottom: 70px solid white;
+  border-radius: 5px; */
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   
 }
@@ -30,18 +37,58 @@ h1 {
 .pivot_tabPanelContent-0-1-51 {
   font-size: 20px;
   border: 5px dotted indianred;
-  
   padding: 1em;
 }
 
+.pivot_activeIndicator-0-1-45 {
+  background-color: cadetblue !important;
+}
+
 .marginTop {
-  margin-top: 3em;
+  margin-top: 1.5em;
 }
 
 #main {
-  margin-top: 5em;
+  margin-top: 6em;
   padding-bottom: 15em;
 }
+
+/* .sliderLabel_label-0-1-468 {
+  font-size: 14px !important;
+} */
+
+#sliderLabel-white {
+  text-decoration: underline;
+  text-decoration-color: #FFF;
+
+}
+
+#sliderLabel-yellow {
+  text-decoration: underline;
+  text-decoration-color: #CB2;
+}
+
+#sliderLabel-green {
+  text-decoration: underline;
+  text-decoration-color: #362;
+}
+
+#sliderLabel-red {
+  text-decoration: underline;
+  text-decoration-color: #A00;
+}
+
+#sliderLabel-blue {
+  text-decoration: underline;
+  text-decoration-color: #005;
+}
+
+#sliderLabel-black {
+  text-decoration: underline;
+  text-decoration-color: #000;
+}
+
+
 
 
 
