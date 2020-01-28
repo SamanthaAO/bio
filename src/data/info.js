@@ -7,7 +7,7 @@ export const info = {
     sections: [
         {
             headingText: "General",
-            paragraphText: "I was born and raised in California. I moved up to Seattle for college and fell in love with the area and have never looked back. The only exception being 2 years when I lived in the UK because I am partial to all the rainy grey places. I currently live in Bellevue with my dog (Phoebe), cat (Fievil), and husband. ",
+            paragraphText: "I was born and raised in California. I moved up to Seattle for college, fell in love with the area, and have never looked back. The only exception being when I lived in the UK for 2 years because I am partial to all the rainy grey places. I currently live in Bellevue with my dog (Phoebe), cat (Fievil), and husband. ",
             image: {
                 src: generalImage,
                 alt: "Samantha Orcutt in Paris"
@@ -16,7 +16,7 @@ export const info = {
         {
             headingText: "Career",
             paragraphText: 
-            "I graduated from UW cum laude with a degree in Environmental Studies. After graduation I started a job as an Office Coordinator/ Legal Assistant at a wealth management firm in downtown Seattle. In this position I was in charge of solving any problem that was affecting the office and these issues often ended up being technical in nature. Loving the challenge that tech provided me, and wanting to find ways to further improve the client interfaces that I was working with, I decided to enroll myself in UW's full stack coding bootcamp. The bootcamp was one of the most challenging things I ever did, and I look forward to continuing to push myself in the same way that the bootcamp did as I continue to explore this ever expanding field.",
+            "I graduated from UW with a degree in Environmental Studies. After graduation I started a job as an Office Coordinator/ Legal Assistant at a wealth management firm in downtown Seattle. In this position I was in charge of solving any problem that was affecting the office, and these issues often ended up being technical in nature. Loving the challenge that tech provided me, and wanting to find ways to further improve the client interfaces that I was working with, I decided to enroll myself in UW's full stack coding bootcamp. The bootcamp was one of the most challenging things I ever did. I look forward to continuing to push myself as I continue to explore this ever expanding field.",
             image: {
                 src: careerImage,
                 alt: "Samantha Orcutt in Professional Attire"
