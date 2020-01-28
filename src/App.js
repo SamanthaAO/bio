@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Grid, Column } from "@microsoft/fast-layouts-react";
+import { Grid, Column, Page } from "@microsoft/fast-layouts-react";
 import { Pivot, Image } from "@microsoft/fast-components-react-msft";
 //import { uniqueId } from "lodash-es";
 
@@ -9,9 +9,6 @@ import { DesignSystemProvider } from "@microsoft/fast-jss-manager-react";
 import { mergeDesignSystem } from "@microsoft/fast-jss-manager";
 
 import { AnimateFrom } from "@microsoft/fast-animation";
-
-
-import { Page } from "@microsoft/fast-layouts-react";
 
 import './assets/styles/App.css';
 import { info } from "./data/info";
@@ -34,8 +31,8 @@ class App extends React.Component {
     this.changeColor = this.changeColor.bind(this);
     this.changeColorDisplay = this.changeColorDisplay.bind(this);
 
-    this.handleClickImage = this.handleClickImage.bind(this);
-    this.handleKeyUpImage = this.handleKeyUpImage.bind(this);
+    // this.handleClickImage = this.handleClickImage.bind(this);
+    this.onTabUpdate = this.onTabUpdate.bind(this);
     this.animateImage = this.animateImage.bind(this);
 
     this.state = {
@@ -45,24 +42,13 @@ class App extends React.Component {
     }
   }
 
-  // on click of a tab gets number off the end of the id and sets image Id to that and runs animation
-  handleClickImage = event => {
-    const newImageId = parseInt(event.target.id.slice(-1));
-    this.animateImage();
-    this.setState({ imageId: newImageId });
-  }
-
-  // on keyup to change tab gets number off the end of the id and sets image Id to that and runs animation
-  handleKeyUpImage() {
-    info.sections.forEach((section, i) => {
-      if (document.getElementById(`div-tab-${i}`).getAttribute("tabIndex") === "0") {
-        const newImageId = i;
+// when active tab changes change image
+  onTabUpdate(activeTab) {
+    const newImageId = activeTab;
         this.animateImage();
         this.setState({ imageId: newImageId });
-      }
-
-    })
   }
+
 
   //animates image
   animateImage() {
@@ -116,23 +102,11 @@ class App extends React.Component {
     this.setState({ myDesign: mergeDesignSystem(DesignSystemDefaults, newDesign) })
   }
 
-  //assigns id to the tab div and adds a click event to run image animation off of
-  componentDidMount() {
-    info.sections.forEach((section, i) => {
-      document.getElementById(`tab-${i}`).parentNode.setAttribute("id", `div-tab-${i}`);
-      document.getElementById(`div-tab-${i}`).addEventListener("click", this.handleClickImage);
-      document.getElementById(`div-tab-${i}`).addEventListener("keyup", this.handleKeyUpImage);
-    })
-
-  }
-
 
   render() {
 
     return (
       
-
-        
           <Page >
 
             <MyHeading />
@@ -143,10 +117,9 @@ class App extends React.Component {
             <DesignSystemProvider designSystem={this.state.myDesign}>
               
                 <Grid id="main"
-                  className="App" style={{ backgroundColor: this.state.myDesign.backgroundColor }}
+                 style={{ backgroundColor: this.state.myDesign.backgroundColor }}
                 >
 
-                
                 <Column
                   id="imageColumn"
                   position={[1, 1, 1, 1]}
@@ -179,7 +152,7 @@ class App extends React.Component {
                         }
                       }}
                     label="Pivot Component containing information about Samantha Orcutt"
-                    onUpdate={(activeTab) => console.log(activeTab)}
+                    onUpdate={(activeTab) => this.onTabUpdate(activeTab)}
                     items={info.sections.map((x, i) => {
                       let obj = {};
                       obj.tab = (className) => (
