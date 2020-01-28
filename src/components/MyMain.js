@@ -12,7 +12,7 @@ export default function MyMain(props) {
 
             <MyImage i={props.i} />
 
-            <MyPivot />
+            <MyPivot/>
 
         </Grid>
 

@@ -31,6 +31,7 @@ class App extends React.Component {
     this.changeColorDisplay = this.changeColorDisplay.bind(this);
 
     this.handleClickImage = this.handleClickImage.bind(this);
+    this.handleKey = this.handleKey.bind(this);
     this.animateImage = this.animateImage.bind(this);
 
     this.state = {
@@ -46,6 +47,18 @@ class App extends React.Component {
     this.animateImage();
     this.setState({ imageId: newImageId });
   }
+
+// on keyup to change tab gets number off the end of the id and sets image Id to that and runs animation
+handleKey(){
+  info.sections.forEach((section, i) => {
+    if(document.getElementById(`div-tab-${i}`).getAttribute("tabIndex") === "0"){
+      const newImageId = i;
+      this.animateImage();
+      this.setState({ imageId: newImageId });
+    }
+    
+  })
+}
 
 //animates image
   animateImage() {
@@ -104,8 +117,11 @@ class App extends React.Component {
     info.sections.forEach((section, i) => {
       document.getElementById(`tab-${i}`).parentNode.setAttribute("id", `div-tab-${i}`);
       document.getElementById(`div-tab-${i}`).addEventListener("click", this.handleClickImage);
+      document.getElementById(`div-tab-${i}`).addEventListener("keyup", this.handleKey);
     })
+    
   }
+
 
   render() {
   
@@ -123,6 +139,7 @@ class App extends React.Component {
 
             <MyMain 
               i={this.state.imageId}
+              onChange={this.componentDidMount}
             />
 
           </Page>

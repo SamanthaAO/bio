@@ -6,7 +6,7 @@ import { Pivot } from "@microsoft/fast-components-react-msft";
 
 import { info } from "../data/info";
 
-export default function MyPivot() {
+export default function MyPivot(props) {
     return (
         
               <Column
