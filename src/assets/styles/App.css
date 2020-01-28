@@ -1,14 +1,10 @@
-.App {
+/* .App {
   height: 100%;
-}
+} */
 
 .marginTop {
   margin-top: 2em;
 }
-
-/* h1 {
-  text-align: center;
-} */
 
 #myHeadingSpan {
   text-decoration: underline;
@@ -17,12 +13,11 @@
 
 #main {
   margin-top: 6em;
-  padding-bottom: 15em;
+  padding: 2em;
+  margin-bottom: 2em;
 }
 
-#myPivot {
-  margin-top: 1em;
-}
+
 
 
 #imageColumn {
@@ -37,25 +32,6 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   
 }
-
-span.pivot_activeIndicator-0-1-45 {
-  background-color: cadetblue;
-}
-
-/* .pivot_tabContent-0-1-44 {
-  font-size: 34px;
-  line-height:40px;
-} */
-
-.pivot_tabPanelContent-0-1-51 {
-  font-size: 20px;
-  border: 5px dotted indianred;
-  padding: 1em;
-}
-
-/* span#sliderLabel-white {
-  font-size: 14px;
-} */
 
 #sliderLabel-white {
   text-decoration: underline;
