@@ -29,9 +29,8 @@ class App extends React.Component {
     super(props);
 
     this.changeColor = this.changeColor.bind(this);
-    this.changeColorDisplay = this.changeColorDisplay.bind(this);
-
-    // this.handleClickImage = this.handleClickImage.bind(this);
+    
+    
     this.onTabUpdate = this.onTabUpdate.bind(this);
     this.animateImage = this.animateImage.bind(this);
 
@@ -45,11 +44,11 @@ class App extends React.Component {
 // when active tab changes change image
   onTabUpdate(activeTab) {
     const newImageId = activeTab;
-        this.animateImage();
-        this.setState({ imageId: newImageId });
+    this.setState({ imageId: newImageId });
+    // this.animateImage();
   }
 
-
+  
   //animates image
   animateImage() {
     const imageDisplay = document.querySelector(".imageDisplay");
@@ -59,47 +58,50 @@ class App extends React.Component {
 
 
   //switch for slider that changes the state of background color
-  changeColor() {
-    var x = document.querySelector("input").value;
+  changeColor = (newValue) => {
+    // var x = document.querySelector("input").value;
+    let x = newValue;
+    let background;
+
     switch (true) {
       case (x >= 0 && x <= 5):
-        this.setState({ backgroundColor: "#FFF" })
+        default:
+        background = "#FFF";
         break;
 
       case (x >= 6 && x <= 15):
-        this.setState({ backgroundColor: "#CB2" })
-
+        background = "#CB2";
         break;
 
       case (x >= 16 && x <= 25):
-        this.setState({ backgroundColor: "#362" })
+        background = "#362";
         break;
 
       case (x >= 26 && x <= 35):
-        this.setState({ backgroundColor: "#A00" })
+        background = "#A00";
         break;
 
       case (x >= 36 && x <= 45):
-        this.setState({ backgroundColor: "#005" })
+        background = "#005";
         break;
 
       case (x >= 46 && x <= 50):
-        this.setState({ backgroundColor: "#000" })
+        background = "#000";
         break;
-
-      default:
-        this.setState({ backgroundColor: this.state.backgroundColor });
-
     }
-
-    this.changeColorDisplay();
+    //console.log(background)
+    this.setState({myDesign: Object.assign({}, DesignSystemDefaults, {backgroundColor: background})})
 
   }
 
-  //changes color display based on this.state.backgroundColor
-  changeColorDisplay() {
+  // //changes color display based on this.state.backgroundColor
+  changeColorDisplay = () => {
     newDesign.backgroundColor = this.state.backgroundColor;
     this.setState({ myDesign: mergeDesignSystem(DesignSystemDefaults, newDesign) })
+  }
+
+  componentDidMount () {
+    this.animateImage();
   }
 
 

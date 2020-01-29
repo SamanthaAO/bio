@@ -10,6 +10,7 @@ const range = {
 const x = 10;
 
 export default function MySlider(props) {
+    //console.log(props);
     return (
         <Grid className="marginTop">
             <Column
@@ -20,7 +21,7 @@ export default function MySlider(props) {
                     range={range}
                     id="mySlider"
                     initialValue={0}
-                    onValueChange={props.changeColor}
+                    onValueChange={typeof props.changeColor === "function" ? props.changeColor : null}
                 >
                     <SliderLabel
                         id="sliderLabel-white"
